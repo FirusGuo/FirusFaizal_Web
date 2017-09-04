@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -22,15 +23,15 @@ func main() {
 	router.GET("/robots.txt", robots)
 
 	//Local Server
-	fmt.Println("Listening on Local Server localhost:3000...")
-	panic(http.ListenAndServe(":3000", router))
+	// fmt.Println("Listening on Local Server localhost:3000...")
+	// panic(http.ListenAndServe(":3000", router))
 
 	//Remote Server
-	// fmt.Println("Listening on Remote Server...")
-	// err := http.ListenAndServe(":"+os.Getenv("PORT"), router)
-	// if err != nil {
-	// 	panic(err)
-	// }
+	fmt.Println("Listening on Remote Server...")
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), router)
+	if err != nil {
+		panic(err)
+	}
 }
 
 //Index     Handler: Index, Route: /
