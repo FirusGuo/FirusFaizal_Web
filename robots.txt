@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.firusfaizal.com/sitemap/sitemap.xml
